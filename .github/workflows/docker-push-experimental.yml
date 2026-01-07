@@ -7,6 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
+  # 1. SETUP
   setup:
     name: 🏗️ Setup and Auth
     runs-on: ubuntu-latest
@@ -19,6 +20,7 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
+  # 2. BUILD
   build:
     name: 🐳 Build & Push Multi-Arch
     needs: setup
@@ -44,22 +46,24 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+  # 3. SCAN
   scan:
     name: 🛡️ Security Scan
     needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@0.20.0 # Use a specific version for stability
         with:
           image-ref: 'freudend/hytale-server:experimental'
           format: 'table'
-          exit-code: '1' # Fails the build if vulnerabilities are found
+          exit-code: '1' 
           severity: 'CRITICAL,HIGH'
 
+  # 4. README
   readme:
     name: 📝 Update Docker Hub README
-    needs: build
+    needs: scan # CHANGED from 'build' to 'scan' so they align in a nice row
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -67,6 +71,7 @@ jobs:
       - name: Update Description
         uses: peter-evans/dockerhub-description@v4
         with:
+          # Using consistent secret names here:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
           repository: freudend/hytale-server
