@@ -31,7 +31,7 @@ docker run -d \
   --restart unless-stopped \
   -e EULA="TRUE" \
   -p 25565:25565/udp \
-  -v ./data:/data \
+  -v ./data:/home/container \
   freudend/docker-hytale-server:latest
 ```
 

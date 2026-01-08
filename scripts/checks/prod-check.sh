@@ -137,10 +137,10 @@ fi
 # Use 'time' to measure the duration instead of parsing 'dd' output
 # This is much more reliable across different Linux distributions
 START=$(date +%s)
-dd if=/dev/zero of=/data/.test_io bs=1M count=10 conv=fsync >/dev/null 2>&1
+dd if=/dev/zero of=/home/container/.test_io bs=1M count=10 conv=fsync >/dev/null 2>&1
 END=$(date +%s)
 IO_TIME=$((END - START))
-rm -f /data/.test_io
+rm -f /home/container/.test_io
 
 if [ "$IO_TIME" -gt 2 ]; then
     log "[Performance] Warning: Disk IO is slow ($IO_TIME seconds for 10MB). Expect lag." "$YELLOW"
@@ -179,26 +179,26 @@ fi
 
 # 12. Check for leftover Lockfiles
 # Leftover lockfiles often indicate a crash or "hard kill" of the previous session.
-if [ -d "/data/world" ]; then
-    if [ -f "/data/world/session.lock" ]; then
+if [ -d "/home/container/world" ]; then
+    if [ -f "/home/container/world/session.lock" ]; then
         log "[Integrity] Warning: Leftover session.lock detected. Previous shutdown may have been improper." "$YELLOW"
     else
         log "[Integrity] No session lockfile detected. System is clean." "$GREEN"
     fi
 else
     # If the directory doesn't exist, it's a fresh server or a new world.
-    log "[Integrity] Fresh world environment detected (no /data/world)." "$GREEN"
+    log "[Integrity] Fresh world environment detected (no /home/container/world)." "$GREEN"
 fi
 
 # 13. Filesystem Type Check
 # OverlayFS (commonly used by Docker layers) can introduce latency under heavy,
 # write-intensive workloads such as world saves and region updates.
-# A native filesystem (ext4/xfs) is strongly preferred for /data.
-FS_TYPE=$(stat -f -c %T /data)
+# A native filesystem (ext4/xfs) is strongly preferred for /home/container.
+FS_TYPE=$(stat -f -c %T /home/container)
 if [ "$FS_TYPE" = "overlayfs" ]; then
-    log "[Performance] Warning: /data is on overlayfs. Heavy IO may cause lag." "$YELLOW"
+    log "[Performance] Warning: /home/container is on overlayfs. Heavy IO may cause lag." "$YELLOW"
 else
-    log "[Performance] Filesystem for /data: $FS_TYPE." "$GREEN"
+    log "[Performance] Filesystem for /home/container: $FS_TYPE." "$GREEN"
 fi
 
 # 14. OOM Killer Risk Detection
