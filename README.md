@@ -3,9 +3,9 @@
 [![Docker Hytale Server](https://repository-images.githubusercontent.com/1129339268/326db70c-ce07-4e0e-a256-fabc1c0216a5)](https://github.com/deinfreu/docker-hytale-server)
 
 
-[![GitHub stars](https://img.shields.io/github/stars/deinfreu/docker-hytale-server?style=for-the-badge)](https://github.com/deinfreu/docker-hytale-server)
+[![GitHub stars](https://img.shields.io/github/stars/deinfreu/docker-hytale-server?style=for-the-badge&color=daaa3f)](https://github.com/deinfreu/docker-hytale-server)
 [![GitHub last commit](https://img.shields.io/github/last-commit/deinfreu/docker-hytale-server?style=for-the-badge)](https://github.com/deinfreu/docker-hytale-server)
-[![Discord](https://img.shields.io/discord/1458149014808821965?style=for-the-badge)](https://discord.gg/2kn2T6zpaV)
+[![Discord](https://img.shields.io/discord/1458149014808821965?style=for-the-badge&label=Discord&labelColor=5865F2)](https://discord.gg/2kn2T6zpaV)
 [![Docker Pulls](https://img.shields.io/docker/pulls/freudend/hytale-server?style=for-the-badge)](https://hub.docker.com/r/freudend/hytale-server)
 [![Docker Image Size](https://img.shields.io/docker/image-size/freudend/hytale-server/experimental?style=for-the-badge)](https://hub.docker.com/r/freudend/hytale-server/tags)
 [![GitHub license](https://img.shields.io/github/license/deinfreu/docker-hytale-server?style=for-the-badge)](https://github.com/deinfreu/docker-hytale-server/blob/main/LICENSE)
@@ -17,7 +17,7 @@ Deploy a production-ready Hytale server in seconds with automated diagnostics, h
 ## 🤝 Support & Resources
 
 * **Documentation:** Detailed performance optimizations and security specifications are located in the [Project Wiki](../../wiki).
-* **Troubleshooting:** Consult the [FAQ](../../wiki/FAQ) and our [Security Policy](SECURITY.md) before reporting issues.
+* **Troubleshooting:** Consult the [FAQ](../../wiki/FAQ) and our [Security Policy](SECURITY.md) before reporting issues. You can also visit our [Discord](https://discord.com/invite/2kn2T6zpaV)!
 * **Issue Tracking:** Can't find what you're looking for? [Open a new issue](issues/new) and I'll be happy to help.
 
 ## ⚡️ Quick start
