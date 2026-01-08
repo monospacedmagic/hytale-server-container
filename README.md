@@ -1,6 +1,6 @@
 <div align="center" width="100%">
 
-[![Docker Hytale Server][repo_logo_img]][repo_url]
+[![Docker Hytale Server](https://raw.githubusercontent.com/deinfreu/docker-hytale-server/main/path/to/your/logo.png)](https://github.com/deinfreu/docker-hytale-server)
 
 
 
@@ -13,6 +13,12 @@
 Deploy a production-ready Hytale server in seconds with automated diagnostics, hardened security, and optimized networking using a single command with docker.
 
 </div>
+
+## 🤝 Support & Resources
+
+* **Documentation:** Detailed performance optimizations and security specifications are located in the [Project Wiki](../../wiki).
+* **Troubleshooting:** Consult the [FAQ](../../wiki/FAQ) and our [Security Policy](SECURITY.md) before reporting issues.
+* **Issue Tracking:** Can't find what you're looking for? [Open a new issue](issues/new) and I'll be happy to help.
 
 ## ⚡️ Quick start
 
