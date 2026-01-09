@@ -71,13 +71,15 @@ STOPSIGNAL SIGTERM
 HEALTHCHECK --interval=30s --timeout=5s --start-period=2m --retries=3 \
     CMD ss -ulpn | grep -q ":${SERVER_PORT:-25565}" || exit 1
 
-# 12. Build metadata
+# 11. Build metadata
 ARG BUILDTIME=local
 ARG VERSION=local
 ARG REVISION=local
-RUN echo "buildtime=${BUILDTIME}" > /etc/image.properties && \
-    echo "version=${VERSION}" >> /etc/image.properties && \
-    echo "revision=${REVISION}" >> /etc/image.properties
+COPY <<EOF /etc/image.properties
+buildtime=${BUILDTIME}
+version=${VERSION}
+revision=${REVISION}
+EOF
 
 # 12. FINAL Proper init + startup
 ENTRYPOINT ["/sbin/tini", "--"]
