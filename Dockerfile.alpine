@@ -17,7 +17,7 @@ RUN find scripts -type f -name "*.sh" -exec dos2unix {} + && \
     chmod +x entrypoint.sh
 
 # --- STAGE 2: Final Runtime ---
-FROM eclipse-temurin:25.0.1_8-jre-alpine-3.23
+FROM bellsoft/liberica-openjre-alpine-musl:25.0.1-11
 
 # Metadata
 LABEL org.opencontainers.image.title="Hytale Server" \
