@@ -17,22 +17,21 @@ if [ "$MINECRAFT" = "TRUE" ]; then
     # Default name if we need to download a new one
     SERVER_JAR_PATH="/home/container/server.jar"
     
-    echo "🎮 MINECRAFT=TRUE: Searching for any *server*.jar in root..."
+    log "[system]" "MINECRAFT=TRUE: Searching for JAR..." "$YELLOW"
 
     # Check if any file matching *server*.jar exists
     # We use a subshell to avoid errors if no file is found
     FOUND_JAR=$(ls /home/container/*server*.jar 2>/dev/null | head -n 1)
 
     if [ -z "$FOUND_JAR" ]; then
-        echo "📥 No server JAR found. Downloading Minecraft Server..."
+        log "[download]" "No JAR found. Downloading Minecraft Server..." "$CYAN"
         
         curl -L -o "$SERVER_JAR_PATH" https://piston-data.mojang.com/v1/objects/84100236a2829286d11da9287c88019e34c919d7/server.jar
         
         # Set to Read-Only
         chmod 444 "$SERVER_JAR_PATH"
-        echo "🔒 File protections enabled: Read-only (server.jar)"
     else
-        echo "✅ Found existing JAR: $FOUND_JAR"
+        log "[system]" "Found existing JAR: $FOUND_JAR" "$GREEN"
         SERVER_JAR_PATH="$FOUND_JAR"
     fi
 fi
