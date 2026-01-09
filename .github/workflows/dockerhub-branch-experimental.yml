@@ -1,4 +1,4 @@
-name: 🚀 Publish: Experimental ➔ Docker Hub (:experimental)
+name: "🚀 Publish: Experimental ➔ Docker Hub (:experimental)"
 
 on:
   push:
@@ -48,17 +48,3 @@ jobs:
             SERVER_JAR_SHA256=f83b8e093865806f931c7e34aae41b177d4c076335263dd124c75d6d65dd1726
           cache-from: type=gha
           cache-to: type=gha,mode=max
-
-  # 3. SCAN
-  scan:
-    name: 🛡️ Security Scan
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Run Trivy vulnerability scanner
-        uses: aquasecurity/trivy-action@0.20.0 # Use a specific version for stability
-        with:
-          image-ref: 'freudend/hytale-server:experimental'
-          format: 'table'
-          exit-code: '0' 
-          severity: 'CRITICAL,HIGH'
