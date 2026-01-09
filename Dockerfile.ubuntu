@@ -28,7 +28,6 @@ ENV EULA="" \
 ARG EXTRA_DEB_PACKAGES=""
 ARG EXTRA_DNF_PACKAGES=""
 ARG EXTRA_ALPINE_PACKAGES=""
-ARG FORCE_INSTALL_PACKAGES=1
 
 # 1. Install Dependencies (Cached Layer)
 # We install dos2unix and iproute2 here so they are ready for later steps
