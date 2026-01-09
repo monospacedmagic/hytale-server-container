@@ -35,6 +35,9 @@ jobs:
           - os_type: alpine
             dockerfile: Dockerfile.alpine
             tag_name: experimental-alpine   # Suffix for Alpine
+          - os_type: alpine
+            dockerfile: Dockerfile.alpine-liberica
+            tag_name: experimental-alpine-liberica   # Suffix for Alpine
     
     steps:
       - name: Checkout code
@@ -59,5 +62,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
           # Tags: experimental-ubuntu and experimental-alpine
           tags: freudend/hytale-server:${{ matrix.tag_name }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-from: type=gha,scope=${{ matrix.tag_name }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.tag_name }}
