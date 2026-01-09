@@ -44,6 +44,7 @@ ENV USER=container \
 # 1. Install ONLY essential runtime dependencies
 # We use --no-cache to avoid storing index files in the image
 RUN apk add --no-cache \
+    curl \
     su-exec \
     tini \
     bash \
