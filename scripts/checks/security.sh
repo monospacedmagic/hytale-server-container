@@ -3,7 +3,7 @@ set -eu
 
 # Load dependencies
 . "$SCRIPTS_PATH/utils.sh"
-. "$SCRIPTS_PATH/checks/lib/security.sh"
+. "$SCRIPTS_PATH/checks/lib/security_logic.sh"
 
 # Execute
 log "Starting security audit..." "$BLUE"
