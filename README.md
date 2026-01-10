@@ -22,7 +22,7 @@ Deploy a production-ready Hytale server in seconds with automated diagnostics, h
 
 ## 🤝 Support & Resources
 
-* **Documentation:** Detailed performance optimizations and security specifications are located in the [Project Wiki](../../wiki).
+* **Documentation:** Detailed performance optimizations and security specifications are located in the [Project Wiki](https://deinfreu.github.io/docker-hytale-server/).
 * **Troubleshooting:** Consult the [FAQ](../../wiki/FAQ) and our [Security Policy](SECURITY.md) before reporting issues. You can also visit our [Discord](https://discord.com/invite/2kn2T6zpaV)!
 * **Issue Tracking:** Can't find what you're looking for? [Open a new issue](issues/new) and I'll be happy to help.
 

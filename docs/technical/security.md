@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "🛡️ Security information" 
+title: "Security" 
 parent: "⚙️ Technical Info"
 nav_order: 3
 ---
