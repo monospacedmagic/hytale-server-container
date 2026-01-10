@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 🛠️ Installation
+title: 📥 Installation
 nav_order: 2
 ---
 

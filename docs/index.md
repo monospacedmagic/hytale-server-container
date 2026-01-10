@@ -2,6 +2,7 @@
 layout: default
 title: 🏠 Home
 nav_order: 1
+description: "Hytale Docker Server Documentation Home"
 ---
 
 # Hytale Docker Server
