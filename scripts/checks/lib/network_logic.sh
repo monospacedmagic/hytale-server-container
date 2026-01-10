@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Load dependencies
 . "$SCRIPTS_PATH/utils.sh"
 

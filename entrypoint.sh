@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -eu
 
 # --- Configuration defaults ---
@@ -16,20 +16,20 @@ export PROD="${PROD:-FALSE}"
 . "$SCRIPTS_PATH/utils.sh"
 
 
-bash "$SCRIPTS_PATH/hytale/binary_handler.sh"
+sh "$SCRIPTS_PATH/hytale/binary_handler.sh"
 
 # --- 1. Initialization ---
 # These scripts use log_section internally
-bash "$SCRIPTS_PATH/hytale/eula.sh"
-bash "$SCRIPTS_PATH/hytale/server-properties.sh"
+sh "$SCRIPTS_PATH/hytale/eula.sh"
+sh "$SCRIPTS_PATH/hytale/server-properties.sh"
 
 
 # --- 2. Audit Suite ---
 log_section "Audit suite"
 # Run Security and Network checks only if DEBUG is TRUE
 if [ "${DEBUG:-FALSE}" = "TRUE" ]; then
-    bash "$SCRIPTS_PATH/checks/security.sh"
-    bash "$SCRIPTS_PATH/checks/network.sh"
+    sh "$SCRIPTS_PATH/checks/security.sh"
+    sh "$SCRIPTS_PATH/checks/network.sh"
 else
     # Optional: A simple line to show audits are skipped
     echo -e "${DIM}System debug skipped (DEBUG=FALSE)${NC}"
@@ -37,7 +37,7 @@ fi
 
 # Run Production readiness check only if PROD is TRUE
 if [ "${PROD:-FALSE}" = "TRUE" ]; then
-    bash "$SCRIPTS_PATH/checks/prod.sh"
+    sh "$SCRIPTS_PATH/checks/prod.sh"
 else
     # Optional: A simple line to show audits are skipped
     echo -e "${DIM}Production audit skipped (PROD=FALSE)${NC}"

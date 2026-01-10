@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # --- Colors & Formatting ---
 BOLD='\033[1m'
