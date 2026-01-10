@@ -65,6 +65,7 @@ examples/**/data/
 docker-compose.override.yml
 .dockerignore
 /docker-compose.yml
+.env
 
 # ----------------------
 # Hytale / project-specific
