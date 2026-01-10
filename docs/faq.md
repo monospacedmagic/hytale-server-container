@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "❓ FAQ"
-nav_order: 4
+nav_order: 5
 description: "Frequently Asked Questions for the Hytale Docker Server"
 ---
 
