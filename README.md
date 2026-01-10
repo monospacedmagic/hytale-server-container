@@ -32,7 +32,7 @@ docker run -d \
   --name hytale-server \
   --restart unless-stopped \
   -e EULA="TRUE" \
-  -p 25565:25565/udp \
+  -p 5520:5520/udp \
   -v ./data:/home/container \
   freudend/docker-hytale-server:latest
 ```
@@ -48,7 +48,7 @@ services:
       EULA: "TRUE"               
     restart: no
     ports:
-      - "25565:25565/udp"
+      - "5520:5520/udp"
     volumes:
       - ./data:/data                        # Mounts the host's ./data folder to the container's /data directory (host:docker).
       - /etc/localtime:/etc/localtime:ro    # Uses the local time of the host machine

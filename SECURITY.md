@@ -27,7 +27,7 @@ Always run this container with memory and CPU limits to prevent a rogue Hytale p
 
 ### 2. Network Isolation
 * **Do not use `--network host`**. Use the default bridge or a custom Docker network.
-* Only expose the necessary ports (default `25565/udp` for Hytale and `25565/tcp` for legacy/proxies).
+* Only expose the necessary ports (default `5520/udp` for Hytale and `5520/tcp` for legacy/proxies).
 
 ### 3. Filesystem Security
 * Mount your local volume to `/home/container`. 

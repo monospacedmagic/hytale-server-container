@@ -12,7 +12,7 @@ services:
       PROD: ""                              # Default:"false". Runs production checks to make sure the system is ready for production enviroments.
     restart: unless-stopped
     ports:
-      - "25565:25565/udp"                       # host:docker ports.
+      - "5520:5520/udp"                       # host:docker ports.
     volumes:
       - ./data:/home/container              # Mounts the host's ./data folder to the container's /home/container directory (host:docker).
       - /etc/localtime:/etc/localtime:ro    # Uses the local time of the host machine
