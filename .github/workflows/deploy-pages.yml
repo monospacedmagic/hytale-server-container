@@ -41,7 +41,7 @@ jobs:
           drop-html-extension: true
 
       - name: Move sitemap to Jekyll output
-        run: mv sitemap.xml ./_site/sitemap.xml
+        run: sudo mv sitemap.xml ./_site/sitemap.xml
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
