@@ -17,11 +17,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 1. Hadolint: Checks Dockerfile for best practices
-      - name: Lint Dockerfile
+      # 1. Hadolint: Lint all Dockerfiles and generate a SARIF report
+      - name: Lint all Dockerfiles
         uses: hadolint/hadolint-action@v3.1.0
         with:
           recursive: true
+          format: sarif
+          output-file: hadolint-results.sarif
+          no-fail: true # Set to true so the workflow continues to the upload step
+
+      # 2. Upload the Hadolint SARIF file to the Security tab
+      - name: Upload Hadolint scan results
+        uses: github/codeql-action/upload-sarif@v3
+        if: always() # Ensures results upload even if linting found errors
+        with:
+          sarif_file: hadolint-results.sarif
+          category: hadolint
 
       # 2. Trivy: Scans for Vulnerabilities (CVEs) and Config issues
       - name: Run Trivy Security Scan
