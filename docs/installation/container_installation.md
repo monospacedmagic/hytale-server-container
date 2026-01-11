@@ -7,10 +7,6 @@ nav_order: 3
 
 ## 📥 Container installation
 
-1. **Install Docker:** Ensure Docker is installed and the service is running.
-2. **Network Optimization:** For the best experience, ensure UDP/QUIC optimizations are applied to your host.
-3. **Deploy the Container:** Choose one of the two methods below.
-
 ### Method A: Docker CLI
 Run this command in your terminal to start the server immediately:
 
