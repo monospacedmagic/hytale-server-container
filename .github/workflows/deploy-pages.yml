@@ -41,18 +41,14 @@ jobs:
           sitemap-path: _site/sitemap.xml # Saves it directly into the build folder
           drop-html-extension: true
 
-      - name: show files
-        run: |
-          ls -l
-
       - name: move robots.txt
         run: |
-          cp robots.txt ./_site/robots.txt
+          cp /docs/robots.txt ./_site/robots.txt
           ls -l ./_site/robots.txt
 
       - name: move llms.txt
         run: |
-          cp llms.txt ./_site/llms.txt
+          cp /docs/llms.txt ./_site/llms.txt
           ls -l ./_site/llms.txt
 
       - name: Upload artifact
