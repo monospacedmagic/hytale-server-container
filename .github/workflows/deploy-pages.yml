@@ -45,9 +45,6 @@ jobs:
           path-to-root: ./_site
           drop-html-extension: true
 
-      - name: Move Sitemap to Site Folder
-        run: sudo cp sitemap.xml ./_site/sitemap.xml
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
