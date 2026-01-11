@@ -14,28 +14,48 @@ jobs:
       contents: read
 
     steps:
+      # 1. Checkout code
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 1. Hadolint: Lint all Dockerfiles and generate a SARIF report
-      - name: Lint all Dockerfiles
-        uses: hadolint/hadolint-action@v3.1.0
-        with:
-          recursive: true
-          dockerfile: ""
-          format: sarif
-          output-file: hadolint-results.sarif
-          no-fail: true
+      # 2. Install Hadolint
+      - name: Install Hadolint
+        run: |
+          HADOLINT_VERSION=v2.12.0
+          curl -sL https://github.com/hadolint/hadolint/releases/download/$HADOLINT_VERSION/hadolint-Linux-x86_64 -o /usr/local/bin/hadolint
+          chmod +x /usr/local/bin/hadolint
+          hadolint --version
 
-      # 2. Upload the Hadolint SARIF file to the Security tab
-      - name: Upload Hadolint scan results
+      # 3. Lint all Dockerfiles dynamically and generate SARIF
+      - name: Lint all Dockerfiles
+        run: |
+          mkdir -p sarif
+          # Find all Dockerfiles
+          DOCKERFILES=$(find . -type f -name 'Dockerfile*')
+          
+          if [ -z "$DOCKERFILES" ]; then
+            echo "No Dockerfiles found, skipping Hadolint."
+            exit 0
+          fi
+
+          # Initialize SARIF file
+          echo '{"version":"2.1.0","runs":[]}' > sarif/hadolint-results.sarif
+
+          for file in $DOCKERFILES; do
+            echo "Linting $file..."
+            # Append each file's SARIF output to the main SARIF
+            hadolint "$file" --format sarif >> sarif/hadolint-results.sarif || true
+          done
+
+      # 4. Upload Hadolint results
+      - name: Upload Hadolint SARIF
         uses: github/codeql-action/upload-sarif@v4
         if: always()
         with:
-          sarif_file: hadolint-results.sarif
+          sarif_file: sarif/hadolint-results.sarif
           category: hadolint
 
-      # 2. Trivy: Scans for Vulnerabilities (CVEs) and Config issues
+      # 5. Run Trivy scan
       - name: Run Trivy Security Scan
         uses: aquasecurity/trivy-action@0.29.0
         with:
@@ -44,14 +64,15 @@ jobs:
           output: 'trivy-results.sarif'
           severity: 'CRITICAL,HIGH'
 
-      - name: Upload Trivy results
+      # 6. Upload Trivy results
+      - name: Upload Trivy SARIF
         uses: github/codeql-action/upload-sarif@v4
         if: always()
         with:
           sarif_file: 'trivy-results.sarif'
           category: trivy
 
-      # 3. ShellCheck: Checks your .sh scripts
+      # 7. Run ShellCheck
       - name: Run ShellCheck
         uses: ludeeus/action-shellcheck@2.0.0
         with:
