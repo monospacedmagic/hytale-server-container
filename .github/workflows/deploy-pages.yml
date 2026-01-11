@@ -48,8 +48,8 @@ jobs:
 
       - name: move llms.txt
         run: |
-          cp robots.txt ./_site/robots.txt
-          ls -l ./_site/robots.txt
+          cp llms.txt ./_site/llms.txt
+          ls -l ./_site/llms.txt
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
