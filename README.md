@@ -42,7 +42,7 @@ docker run -d \
   -e TZ="Europe/Amsterdam" \
   -p 5520:5520/udp \
   -v "hytale-server:/home/container" \
-  -v "/etc/machine-id:/etc/machine-id:ro:" \
+  -v "/etc/machine-id:/etc/machine-id:ro" \
   --restart unless-stopped \
   -t -i \
   deinfreu/hytale-server:experimental
