@@ -14,7 +14,7 @@ export JAVA_ARGS="${JAVA_ARGS:-}"
 export BASE_DIR="/home/container"
 export GAME_DIR="$BASE_DIR/game"
 export SERVER_JAR_PATH="$GAME_DIR/Server/HytaleServer.jar"
-export CACHE="$CACHE:-TRUE"
+export CACHE="$CACHE:-FALSE"
 
 # used by the script
 export AOT_FLAG=""
