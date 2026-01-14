@@ -1,19 +1,17 @@
-version: "3.9"
-
 services:
   hytale:
-    image: freudend/docker-hytale-server:latest  # Replace with your built image
+    image: deinfreu/hytale-server:experimental
     container_name: hytale-server
     environment:
-      EULA: ""                              # Default:"false" Must accept the Hytale EULA to run the server.
-      JAVA_OPTS: ""                         # Optional: extra JVM arguments for server tuning.
-      SERVER_IP: ""                         # Default:"host.docker.internal". Optional:Set your server ip .
-      SERVER_PORT: ""                       # Defaul:"". Optional: Port the Hytale server listens on inside the container.
-      PROD: ""                              # Default:"false". Runs production checks to make sure the system is ready for production enviroments.
+      SERVER_IP: "0.0.0.0"
+      SERVER_PORT: "5520"
+      PROD: "FALSE"
+      DEBUG: "FALSE"
+      TZ: "Europe/Amsterdam"
     restart: unless-stopped
     ports:
-      - "5520:5520/udp"                       # host:docker ports.
+      - "5520:5520/udp"
     volumes:
-      - ./data:/home/container              # Mounts the host's ./data folder to the container's /home/container directory (host:docker).
-      - /etc/localtime:/etc/localtime:ro    # Uses the local time of the host machine
-      - /etc/timezone:/etc/timezone:ro      # Uses the local timezone of the host machine
+      - ./data:/home/container
+    tty: true
+    stdin_open: true

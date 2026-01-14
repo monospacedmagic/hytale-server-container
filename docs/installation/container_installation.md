@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Container installation"
+title: "3. Container installation"
 parent: "📥 Installation"
 nav_order: 3
 ---
@@ -33,19 +33,25 @@ docker run -d \
     add this docker-compose.yml information to the file:
     ``` yaml
     services:
-    hytale-server:
-        image: deinfreu/hytale-server-container:latest
-        container_name: hytale-server
-        restart: unless-stopped
-        environment:
-        DEBUG: "FALSE"
-        ports:
-        - "5520:5520/udp"
-        volumes:
-        - ./data:/home/container
+        hytale:
+            image: freudend/hytale-server:experimental
+            container_name: hytale-server
+            environment:
+            SERVER_IP: "0.0.0.0"
+            SERVER_PORT: "5520"
+            PROD: "FALSE"
+            DEBUG: "FALSE"
+            TZ: "Europe/Amsterdam"
+            restart: unless-stopped
+            ports:
+            - "5520:5520/udp"
+            volumes:
+            - ./data:/home/container
+            tty: true
+            stdin_open: true
     ```
 
-    Now get out of the nano text editor:
+3. Now get out of the nano text editor and save the file:
 
     | Operating System        | Step 1: Write Out | Step 2: Confirm Filename | Step 3: Exit Editor |
     |-------------------------|------------------|--------------------------|---------------------|
@@ -58,17 +64,11 @@ docker run -d \
     > **[IMPORTANT]**
     > Your game files, world data, and configurations will be stored in this `data` folder. Because this folder is mapped to the container, your progress is saved even if you stop or delete the Docker container.
 
-4. **Run the docker compose file** 
-
+1.  Run the docker compose file!
     ```bash
     docker compose up
     ```
-    > Tip: If you don't want to see the logs add "-d" at the end
+    
+    > Tip: do not use -d. We need to use the terminal to authenticate the server.
 
-5. **Check the status of your docker container**
-
-    ```bash
-    docker ps
-    ```
-
-That's all you need to know to start! 🎉
+**Go to the [Next page](./running_server.md)!**

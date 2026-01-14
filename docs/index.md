@@ -12,16 +12,13 @@ Welcome to the official documentation for the **`deinfreu/hytale-server`**. This
 
 To get the most performance out of your server, I suggest taking a look at the [optimizations](./optimizations.md) page!
 
-
-
 ---
 
 ## ✨ Key Features
 
-* **🚀 Very fast:** From start to finish you can join the server within 18 seconds! [Git benchmark](https://github.com/deinfreu/hytale-server-container/actions). image used: `alpine-liberica-slim`.
 * **⚡ Easy Deployment:** Get your server up and running in seconds using Docker or Docker Compose.
-* **🤖 Smart CLI:** Includes the `hytale-cli` tool to manage server binaries and check for updates automatically.
-* **🍓 Multi-Arch Support:** Optimized for `x86_64` (PC/Servers) and `ARM64` (Raspberry Pi/Apple Silicon).
+* **🤖 Smart CLI:** Includes the `hytale-downloader` tool to manage server binaries and check for updates automatically. You can just use "hytale-downloader" in the terminal to accecs it.
+* **🍓 Multi-Arch Support:** Optimized for `x86_64` (`ARM64` coming soon [more info](https://x.com/slikey/status/2010869532454510999)).
 * **🛠️ Diagnostic Suite:** Built-in debug mode to audit your network and security settings automatically.
 * **📉 Slim Images:** Optimized, lightweight image variants for production environments.
 
@@ -34,6 +31,7 @@ Ready to host your world? Follow our step-by-step guides to get started:
 1.  **[Requirements](./installation/requirements.md):** Check if you have your Hytale license key.
 2.  **[System Requirements](./installation/system_requirements.md):** Check if your hardware is ready.
 3.  **[Container Installation](./installation/container_installation.md):** Deploy your first server using CLI or Compose.
+4.  **[Running the server](./installation/running_container.md):** Explenation how to run the setup and run the hytale server.
 4.  **[Debug](./installation/debug.md):** Learn how to debug your installation.
 5.  **[Support](./installation/support.md.md):** Is your installation not working?
 6.  **[Optimizations](./optimizations.md):** Want to go fast? Read here about all the optimizations.
