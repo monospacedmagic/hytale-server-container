@@ -9,25 +9,17 @@ nav_order: 1
 
 The Hytale server container is highly configurable through environment variables. These allow you to tune performance, security, and automation without modifying the internal container files.
 
-## 🔑 Required Variables
-
-| Variable | Description | Default |
-| :--- | :--- | :--- |
-| `EULA` | Must be set to `TRUE` to indicate agreement with the Hytale EULA. | `FALSE` |
-
----
-
 ## ⚙️ Core Server Settings
 
 | Variable | Description | Default |
 | :--- | :--- | :--- |
-| `JAVA_FLAG` | Enter the java startup flags here | `-` |
 | `TZ` | The [Timezone identifier](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) for server logs. | `UTC` |
 | `DEBUG` | Set to `TRUE` to enable diagnostic scripts and verbose logging. | `FALSE` |
 | `SERVER_PORT` | The primary UDP port for game traffic. | `5520` |
 | `SERVER_IP` | The IP address the server binds to. | `0.0.0.0` |
 | `PROD` | Set to `TRUE` to run production readiness audits. | `FALSE` |
 | `JAVA_ARGS` | Additional flags for the JVM (Expert use only). | `(Empty)` |
+| `CACHE` | Enables the Ahead-Of-Time Cache . | `FALSE` |
 
 ---
 
@@ -59,11 +51,3 @@ To ensure your world, player data, and configurations are saved when the contain
 ## Folder structure
 
 The following folder structure is used:
-
-| Docker path | Purpose |
-| :--- | :--- |
-| `/usr/local/bin/scripts` | Location of automation and audit scripts |
-| `/opt/hytale` | Location of the hytale-downloader tool |
-| `/home/container` | Working directory of the docker container |
-| `/home/container/game` | Root directory for game assets and binaries |
-| `/home/container/game/server` | Specific location of the HytaleServer.jar |
