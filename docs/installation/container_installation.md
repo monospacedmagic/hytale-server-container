@@ -38,22 +38,22 @@ docker run -d \
     add this docker-compose.yml information to the file:
     ``` yaml
     services:
-        hytale:
-            image: deinfreu/hytale-server:experimental
-            container_name: hytale-server
-            environment:
+    hytale:
+        image: deinfreu/hytale-server:experimental
+        container_name: hytale-server
+        environment:
             SERVER_IP: "0.0.0.0"
             SERVER_PORT: "5520"
             PROD: "FALSE"
             DEBUG: "FALSE"
             TZ: "Europe/Amsterdam"
-            restart: unless-stopped
-            ports:
-            - "5520:5520/udp"
-            volumes:
-            - ./data:/home/container
-            tty: true
-            stdin_open: true
+        restart: unless-stopped
+        ports:
+        - "5520:5520/udp"
+        volumes:
+        - ./data:/home/container
+        tty: true
+        stdin_open: true
     ```
 
 3. Now get out of the nano text editor and save the file:

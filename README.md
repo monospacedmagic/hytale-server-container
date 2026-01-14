@@ -49,7 +49,7 @@ docker run -d \
 
 Alternatively, you can deploy using Docker Compose. Use the configuration below or explore the [examples](https://github.com/deinfreu/hytale-server-container/tree/main/examples) folder for more advanced templates.
 
-```bash
+```yaml
 services:
   hytale:
     image: deinfreu/hytale-server:experimental
