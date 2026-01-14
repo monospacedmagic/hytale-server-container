@@ -2,7 +2,7 @@
 layout: default
 title: "Docker"
 parent: "⚙️ Technical Info"
-nav_order: 1
+nav_order: 2
 ---
 
 # 🐳 Docker Configuration Reference

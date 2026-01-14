@@ -1,9 +1,9 @@
 ---
 name: 🐳 Docker Run Failure
 about: Report issues with running or starting the Docker container
-title: '[DOCKER] - Unable to start container'
+title: '[DOCKER] Unable to start container'
 labels: docker, bug
-assignees: ''
+assignees: 'deinfreu'
 ---
 
 ## Problem Summary
