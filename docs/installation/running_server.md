@@ -36,9 +36,15 @@ We are now going to start the server!
     Run the following command to authorize the server:
 
     ```bash
+    /auth persistence encrypted
+    ```
+    
+    > **[INFO]** Running `/auth persistence encrypted` makes sure you don't have to re-authorise after a restart.
+
+    ```bash
     /auth login device
     ```
 
 5. **Done!**
 
-**Go to the [Debug page](./debug.md)!** **or go to the [Support page](./support.md)!**
+**Go to the [Debug page](./debug.md)** **or go to the [Support page](./support.md)!**
