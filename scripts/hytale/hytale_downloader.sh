@@ -54,6 +54,8 @@ if [ ! -f "$SERVER_JAR_PATH" ]; then
     rm -f "$ZIP_FILE"
     log_success
     
+    chown -R container:container /home/container || log_warning "Chown failed" "User or group may not exist."
+
     log_step "File Permissions"
     if chmod -R 755 "$GAME_DIR"; then
         log_success
