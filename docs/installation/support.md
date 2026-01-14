@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "6. Support"
+title: "Support"
 parent: "📥 Installation"
 nav_order: 6
 ---

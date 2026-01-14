@@ -6,7 +6,10 @@ description: "Speed optimisations for your hytale server"
 ---
 
 ```yaml
-[ ] Bug fixes
+[ ] Full hytale commands intergration
+    [ ] Server commands
+    [ ] Hytale downloader
+[ ] Auto-update checks
 [ ] Alpine image
 [ ] Alpine Liberica
 [ ] Mod support

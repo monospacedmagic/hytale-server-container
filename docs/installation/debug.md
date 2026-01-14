@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "5. Debug"
+title: "Debug"
 parent: "📥 Installation"
 nav_order: 5
 ---
