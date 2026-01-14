@@ -13,6 +13,13 @@ export GAME_DIR="$BASE_DIR/game"
 export SERVER_JAR_PATH="$GAME_DIR/Server/HytaleServer.jar"
 export CACHE="${CACHE:-FALSE}"
 
+# --- Hytale specific enviroment variables ---
+export HYTALE_ACCEPT_EARLY_PLUGINS="${HYTALE_ACCEPT_EARLY_PLUGINS:-FALSE}"
+export HYTALE_ALLOW_OP="${HYTALE_ALLOW_OP:-FALSE}"
+export HYTALE_AUTH_MODE="${HYTALE_AUTH_MODE:-FALSE}"
+export HYTALE_BACKUP="${HYTALE_BACKUP:-FALSE}"
+export HYTALE_BACKUP_FREQUENCY="${HYTALE_BACKUP_FREQUENCY:-}"
+
 # used by the script
 export AOT_FLAG=""
 
