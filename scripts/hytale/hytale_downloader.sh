@@ -4,11 +4,10 @@ set -eu
 # Load dependencies
 . "$SCRIPTS_PATH/utils.sh"
 
-# Use the log_section helper for consistent styling
-log_section "Hytale Content Check"
+log_section "Hytale Downloader"
 
 # 1. Check if the server is already installed
-log_step "Hytale Binary Check"
+log_step "Hytale Server Binary Check"
 
 if [ ! -f "$SERVER_JAR_PATH" ]; then
     log_warning "HytaleServer.jar not found at $SERVER_JAR_PATH." \
