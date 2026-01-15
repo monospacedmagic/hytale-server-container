@@ -1,13 +1,24 @@
 #!/bin/sh
 
 # --- Colors & Formatting ---
-BOLD='\033[1m'
-DIM='\033[2m'
-GREEN='\033[0;32m'
-RED='\033[0;31m'
-YELLOW='\033[0;33m'
-CYAN='\033[0;36m'
-NC='\033[0m'
+# Disable colors if NO_COLOR is set
+if [ "${NO_COLOR:-FALSE}" = "TRUE" ]; then
+    BOLD=''
+    DIM=''
+    GREEN=''
+    RED=''
+    YELLOW=''
+    CYAN=''
+    NC=''
+else
+    BOLD='\033[1m'
+    DIM='\033[2m'
+    GREEN='\033[0;32m'
+    RED='\033[0;31m'
+    YELLOW='\033[0;33m'
+    CYAN='\033[0;36m'
+    NC='\033[0m'
+fi
 
 # --- Symbols ---
 SYM_OK="${GREEN}✔${NC}"

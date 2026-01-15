@@ -14,6 +14,7 @@ export SERVER_JAR_PATH="$GAME_DIR/Server/HytaleServer.jar"
 export CACHE="${CACHE:-FALSE}"
 export UID="${UID:-1000}"
 export GID="${GID:-1000}"
+export NO_COLOR="${NO_COLOR:-FALSE}"
 
 # --- Hytale specific environment variables ---
 export HYTALE_ACCEPT_EARLY_PLUGINS="${HYTALE_ACCEPT_EARLY_PLUGINS:-FALSE}"
