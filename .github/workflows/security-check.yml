@@ -1,6 +1,7 @@
 name: "🔍 Security & Shell Lint"
 
 on:
+  push:
   workflow_dispatch:
 
 permissions:

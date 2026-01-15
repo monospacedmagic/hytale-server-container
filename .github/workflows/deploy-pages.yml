@@ -2,7 +2,7 @@ name: "📄 Deploy GitHub Pages"
 
 on:
   push:
-    branches: ["experimental"]
+    branches: ["main"]
 
 permissions:
   contents: read

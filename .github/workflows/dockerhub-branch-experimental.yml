@@ -3,7 +3,7 @@ name: "🚀 Publish: Experimental ➔ Docker Hub"
 on:
   push:
     branches:
-      - experimental
+      - main
   workflow_dispatch:
 
 permissions:
