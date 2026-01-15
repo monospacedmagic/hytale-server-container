@@ -6,6 +6,9 @@ labels: docker, bug
 assignees: 'deinfreu'
 ---
 
+## Give me some information about how you run docker 
+For example more information about your system, os and other device specific things.
+
 ## Problem Summary
 Briefly describe what happens when you try to run the container (e.g., "The container exits immediately" or "Permission denied error").
 
