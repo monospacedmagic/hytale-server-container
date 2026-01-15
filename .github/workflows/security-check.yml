@@ -1,7 +1,12 @@
+
 name: "🔍 Security & Shell Lint"
 
 on:
   workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
 
 jobs:
   hadolint:
