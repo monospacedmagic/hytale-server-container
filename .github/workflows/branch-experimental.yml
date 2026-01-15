@@ -1,9 +1,9 @@
-name: "🚀 Publish: Experimental ➔ Docker Hub & GitHub"
+name: "🚀 Publish: Release ➔ Docker Hub & GitHub"
 
 on:
   push:
-    branches:
-      - experimental
+    tags:
+      - 'v*.*.*'
   workflow_dispatch:
 
 permissions:
@@ -32,11 +32,11 @@ jobs:
       matrix:
         include:
           - os_type: ubuntu
-            tag_name: experimental
+            dockerfile: Dockerfile.ubuntu
           - os_type: alpine
-            tag_name: experimental-alpine
+            dockerfile: Dockerfile.alpine
           - os_type: alpine-liberica
-            tag_name: experimental-alpine-liberica
+            dockerfile: Dockerfile.alpine-liberica
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
@@ -53,25 +53,28 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Extract version from tag
+        id: get_version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
       - name: Build & push to GitHub Container Registry
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./Dockerfile.${{ matrix.os_type }}
+          file: ./${{ matrix.dockerfile }}
           push: true
           platforms: linux/amd64
           tags: |
-            ghcr.io/deinfreu/hytale-server:${{ matrix.tag_name }}
-          cache-from: type=gha,scope=${{ matrix.tag_name }}
-          cache-to: type=gha,mode=max,scope=${{ matrix.tag_name }}
+            ghcr.io/deinfreu/hytale-server:${{ steps.get_version.outputs.version }}
+          cache-from: type=gha,scope=${{ steps.get_version.outputs.version }}
+          cache-to: type=gha,mode=max,scope=${{ steps.get_version.outputs.version }}
       - name: Build & push to Docker Hub
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: ./Dockerfile.${{ matrix.os_type }}
+          file: ./${{ matrix.dockerfile }}
           push: true
           platforms: linux/amd64
           tags: |
-            deinfreu/hytale-server:${{ matrix.tag_name }}
-          cache-from: type=gha,scope=${{ matrix.tag_name }}
-          cache-to: type=gha,mode=max,scope=${{ matrix.tag_name }}
+            deinfreu/hytale-server:${{ steps.get_version.outputs.version }}
+          cache-from: type=gha,scope=${{ steps.get_version.outputs.version }}
+          cache-to: type=gha,mode=max,scope=${{ steps.get_version.outputs.version }}
