@@ -1,4 +1,4 @@
-name: 📦 Sync Documentation to Docker Hub
+name: 📦 Set descripton to github and dockerhub
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   packages: write
   actions: write
 
@@ -33,10 +33,10 @@ jobs:
           
           # 3. Create the strings
           # Long version for GitHub
-          GH_DESC="🚀 Hytale Docker Server 📦 ${SIZE_MB}MB (Alpine/Liberica) • Secure non-root execution • Fast QUIC/UDP optimization • Built-in Production & Debug diagnostics • Pterodactyl supported ✅"
+          GH_DESC="Hytale Docker Server 📦 ${SIZE_MB}MB (Alpine/Liberica) • Secure non-root execution • QUIC/UDP • Built-in Production & Debug diagnostics • Pterodactyl coming soon..."
           
           # Short version for Docker Hub (Optimized 100 chars)
-          DH_DESC="📦 ${SIZE_MB}MB (Alpine/Liberica) • Non-root • QUIC Enabled • Prod & Debug • Pterodactyl ✅"
+          DH_DESC="📦 ${SIZE_MB}MB (Alpine/Liberica) • Non-root • QUIC Enabled • Prod & Debug • Pterodactyl coming soon..."
           
           # 4. EXPORT THEM PROPERLY
           echo "GITHUB_DESC=$GH_DESC" >> $GITHUB_OUTPUT
