@@ -12,6 +12,7 @@ export SERVER_IP="${SERVER_IP:-0.0.0.0}"
 export DEBUG="${DEBUG:-FALSE}"
 export PROD="${PROD:-FALSE}"
 export JAVA_ARGS="${JAVA_ARGS:-}"
+export TZ="${TZ:-UTC}"
 export BASE_DIR="/home/container"
 export GAME_DIR="$BASE_DIR/game"
 export SERVER_JAR_PATH="$GAME_DIR/Server/HytaleServer.jar"
@@ -123,6 +124,7 @@ fi
 
 # Execute Java server as non-root user
 exec $RUNTIME java $JAVA_ARGS \
+    -Duser.timezone="$TZ" \
     -Dterminal.jline=false \
     -Dterminal.ansi=true \
     -jar "$SERVER_JAR_PATH" \
