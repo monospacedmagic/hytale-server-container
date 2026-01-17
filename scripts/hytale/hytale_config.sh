@@ -120,8 +120,8 @@ apply_env() {
             ;;
     esac
 
-    # Atomically replace config file
-    mv "$tmp_file" "$CONFIG_FILE"
+    # Atomically replace config file (force to prevent interactive prompts)
+    mv -f "$tmp_file" "$CONFIG_FILE"
     return 0
 }
 
