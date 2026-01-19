@@ -11,7 +11,7 @@ EnvironmentFile=%h/.config/containers/systemd/hytale.env
 Volume=%h/files/hytale:/home/container
 Volume=/etc/machine-id:/etc/machine-id:ro
 # If running on an OS with SELinux, use these Volume declarations instead
-# (Create ~/files/.secrets/machine-id yourself)
+# (Create ~/files/.secrets/machine-id yourself, using dbus-uuidgen)
 #Volume=%h/files/hytale:/home/container:z
 #Volume=%h/files/.secrets/machine-id:/etc/machine-id:z,ro
 
